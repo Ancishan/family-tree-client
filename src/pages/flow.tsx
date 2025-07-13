@@ -77,7 +77,7 @@ export default function HomePage() {
 
   return (
     <div style={{ padding: 30, fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>🌳 Family Tree Viewer</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}> Family Generation</h1>
       {tree.length > 0 ? (
         <div>
           {tree.map(member => renderTree(member))}

@@ -7,6 +7,7 @@ interface Member {
   name: string;
   gender?: string;
   dob?: string;
+  dod?: string;
   photo?: string;
   parentId?: string;
   spouse?: string;
@@ -81,6 +82,7 @@ export default function HomePage() {
         }}
       >
         {member.photo && (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={member.photo}
             alt={member.name}
@@ -90,6 +92,7 @@ export default function HomePage() {
         )}
         <h4 style={{ color: '#2c3e50', marginBottom: '6px', fontSize: '16px' }}>{member.name}</h4>
         {member.dob && <p style={{ fontSize: '13px', color: '#7f8c8d' }}>🎂 {new Date(member.dob).toLocaleDateString()}</p>}
+        {member.dod && <p style={{ fontSize: '13px', color: '#7f8c8d' }}>🕊 {new Date(member.dod).toLocaleDateString()}</p>}
         {member.gender && <p style={{ fontSize: '13px', color: '#7f8c8d' }}>⚧ {member.gender}</p>}
         {member.spouse && <p style={{ fontSize: '13px', color: '#7f8c8d' }}>💍 Spouse: {member.spouse}</p>}
       </div>
@@ -107,6 +110,12 @@ export default function HomePage() {
           </p>
         )}
 
+        {member.dod && (
+          <p style={{ textAlign: 'center', fontSize: '14px', color: '#7f8c8d' }}>
+            🕊 Date of Death: {new Date(member.dod).toLocaleDateString()}
+          </p>
+        )}
+
         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
           {member.children && member.children.map((child) => renderMemberCard(child))}
         </div>
@@ -116,7 +125,7 @@ export default function HomePage() {
 
   return (
     <div style={{ padding: 30, fontFamily: 'Segoe UI, sans-serif', background: '#f4f7fb', minHeight: '100vh' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '30px', color: '#2c3e50' }}>🌳 Family Tree Viewer</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '30px', color: '#2c3e50' }}> Family Generation</h1>
 
       {mainMember && (
         <div style={{ textAlign: 'center' }}>
@@ -141,6 +150,7 @@ export default function HomePage() {
             )}
             <h2 style={{ color: '#2c3e50', fontSize: '22px' }}>{mainMember.name}</h2>
             {mainMember.dob && <p style={{ color: '#555' }}>🎂 DOB: {new Date(mainMember.dob).toLocaleDateString()}</p>}
+            {mainMember.dod && <p style={{ color: '#555' }}>🕊 DOD: {new Date(mainMember.dod).toLocaleDateString()}</p>}
             {mainMember.gender && <p style={{ color: '#555' }}>⚧ Gender: {mainMember.gender}</p>}
             {mainMember.spouse && <p style={{ color: '#555' }}>💍 Spouse: {mainMember.spouse}</p>}
           </div>

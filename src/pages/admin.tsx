@@ -10,6 +10,7 @@ export default function AdminPage() {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
   const [dob, setDob] = useState('');
+  const [dod, setDod ] = useState('');
   const [photo, setPhoto] = useState('');
   const [spouse, setSpouse] = useState('');
   const [parentId, setParentId] = useState('');
@@ -33,6 +34,7 @@ export default function AdminPage() {
         name,
         gender,
         dob,
+        dod,
         parentId: parentId || null,
         spouse: spouse || '',
         photo: photo || '',
@@ -44,6 +46,7 @@ export default function AdminPage() {
       setName('');
       setGender('');
       setDob('');
+      setDod('');
       setPhoto('');
       setSpouse('');
       setParentId('');
@@ -79,6 +82,13 @@ export default function AdminPage() {
           placeholder="YYYY-MM-DD"
           value={dob}
           onChange={(e) => setDob(e.target.value)}
+          style={inputStyle}
+        />
+        <label style={{ display: 'block', marginBottom: 6 }}>Date of Death</label>
+        <input
+          placeholder="YYYY-MM-DD"
+          value={dod}
+          onChange={(e) => setDod(e.target.value)}
           style={inputStyle}
         />
 
